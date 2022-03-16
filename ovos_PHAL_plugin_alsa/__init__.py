@@ -7,7 +7,7 @@ from mycroft_bus_client import Message
 
 class AlsaVolumeControlPlugin(PHALPlugin):
     def __init__(self, bus=None, config=None):
-        super().__init__(bus=bus, name="ovos-PHAL-plugin-system", config=config)
+        super().__init__(bus=bus, name="ovos-PHAL-plugin-alsa", config=config)
         self.alsa = AlsaControl()
         self.volume_sound = join(dirname(__file__), "blop-mark-diangelo.wav")
         self.bus.on("mycroft.volume.get", self.handle_volume_request)
