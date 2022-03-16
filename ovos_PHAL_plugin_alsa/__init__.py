@@ -15,6 +15,7 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.bus.on("mycroft.volume.set.gui", self.handle_volume_change_gui)
         self.bus.on("mycroft.volume.mute", self.handle_mute_request)
         self.bus.on("mycroft.volume.unmute", self.handle_unmute_request)
+        self.set_volume(50)
 
     def get_volume(self):
         return self.alsa.get_volume_percent()
