@@ -12,6 +12,8 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.volume_sound = join(dirname(__file__), "blop-mark-diangelo.wav")
         self.bus.on("mycroft.volume.get", self.handle_volume_request)
         self.bus.on("mycroft.volume.set", self.handle_volume_change)
+        self.bus.on("mycroft.volume.increase", self.handle_volume_increase)
+        self.bus.on("mycroft.volume.decrease", self.handle_volume_decrease)
         self.bus.on("mycroft.volume.set.gui", self.handle_volume_change_gui)
         self.bus.on("mycroft.volume.mute", self.handle_mute_request)
         self.bus.on("mycroft.volume.unmute", self.handle_unmute_request)
@@ -76,6 +78,14 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         percent = message.data["percent"] * 100
         self.set_volume(percent)
 
+    def handle_volume_increase(self, message):
+        percent = message.data["percent"] * 100
+        self.increase_volume(percent)
+
+    def handle_volume_decrease(self, message):
+        percent = message.data["percent"] * 100
+        self.decrease_volume(percent)
+
     def handle_volume_change_gui(self, message):
         percent = message.data["percent"] * 100
         self.set_volume(percent, set_by_gui=True)
@@ -83,7 +93,10 @@ class AlsaVolumeControlPlugin(PHALPlugin):
     def shutdown(self):
         self.bus.remove("mycroft.volume.get", self.handle_volume_request)
         self.bus.remove("mycroft.volume.set", self.handle_volume_change)
+        self.bus.remove("mycroft.volume.increase", self.handle_volume_increase)
+        self.bus.remove("mycroft.volume.decrease", self.handle_volume_decrease)
         self.bus.remove("mycroft.volume.set.gui", self.handle_volume_change_gui)
         self.bus.remove("mycroft.volume.mute", self.handle_mute_request)
         self.bus.remove("mycroft.volume.unmute", self.handle_unmute_request)
+        self.bus.remove("mycroft.volume.mute.toggle", self.handle_mute_toggle_request)
         super().shutdown()
