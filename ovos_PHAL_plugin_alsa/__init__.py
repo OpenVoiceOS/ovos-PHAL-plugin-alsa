@@ -3,11 +3,14 @@ from os.path import join, dirname
 from ovos_utils.sound import play_audio
 from ovos_utils.sound.alsa import AlsaControl
 from mycroft_bus_client import Message
+from json_database import JsonConfigXDG
 
 
 class AlsaVolumeControlPlugin(PHALPlugin):
     def __init__(self, bus=None, config=None):
-        super().__init__(bus=bus, name="ovos-PHAL-plugin-alsa", config=config)
+        skill_id = "ovos-PHAL-plugin-alsa.openvoiceos"
+        super().__init__(bus=bus, name=skill_id, config=config)
+        self.settings = JsonConfigXDG(skill_id, subfolder="OpenVoiceOS")
         self.alsa = AlsaControl()
         self.volume_sound = join(dirname(__file__), "blop-mark-diangelo.wav")
         self.bus.on("mycroft.volume.get", self.handle_volume_request)
@@ -19,7 +22,10 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.bus.on("mycroft.volume.unmute", self.handle_unmute_request)
         self.bus.on("mycroft.volume.mute.toggle", self.handle_mute_toggle_request)
 
-        self.set_volume(50)
+        if self.settings.get("first_boot", True):
+            self.set_volume(50)
+            self.settings["first_boot"] = False
+            self.settings.store()
 
     def get_volume(self):
         return self.alsa.get_volume_percent()

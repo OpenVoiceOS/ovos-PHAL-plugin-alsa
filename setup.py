@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import os
+
 from setuptools import setup
+
 
 def package_files(directory):
     paths = []
@@ -9,10 +11,11 @@ def package_files(directory):
             paths.append(os.path.join('..', path, filename))
     return paths
 
+
 PLUGIN_ENTRY_POINT = 'ovos-PHAL-plugin-alsa=ovos_PHAL_plugin_alsa:AlsaVolumeControlPlugin'
 setup(
     name='ovos-PHAL-plugin-alsa',
-    version='0.0.1',
+    version='0.0.2',
     description='A volume control plugin for OpenVoiceOS hardware abstraction layer',
     url='https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa',
     author='JarbasAi',
@@ -20,7 +23,7 @@ setup(
     license='Apache-2.0',
     packages=['ovos_PHAL_plugin_alsa'],
     package_data={'': package_files('ovos_PHAL_plugin_alsa')},
-    install_requires=["ovos-plugin-manager>=0.0.1"],
+    install_requires=["ovos-plugin-manager>=0.0.1", "json_database"],
     zip_safe=True,
     include_package_data=True,
     classifiers=[
