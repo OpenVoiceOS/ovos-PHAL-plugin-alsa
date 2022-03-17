@@ -8,9 +8,8 @@ from json_database import JsonConfigXDG
 
 class AlsaVolumeControlPlugin(PHALPlugin):
     def __init__(self, bus=None, config=None):
-        skill_id = "ovos-PHAL-plugin-alsa.openvoiceos"
-        super().__init__(bus=bus, name=skill_id, config=config)
-        self.settings = JsonConfigXDG(skill_id, subfolder="OpenVoiceOS")
+        super().__init__(bus=bus, name="ovos-PHAL-plugin-alsa", config=config)
+        self.settings = JsonConfigXDG(self.name, subfolder="OpenVoiceOS")
         self.alsa = AlsaControl()
         self.volume_sound = join(dirname(__file__), "blop-mark-diangelo.wav")
         self.bus.on("mycroft.volume.get", self.handle_volume_request)
