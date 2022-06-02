@@ -24,7 +24,7 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         # A silent method to get the volume without invoking the shell osd
         # Needed as gui will always refresh and request it
         # When sliding panel opens to refresh volume value data
-        self.bus.on("mycroft.volume.get.silent", self.handle_get_silent)
+        self.bus.on("mycroft.volume.get.sliding.panel", self.handle_volume_request)
 
         if self.settings.get("first_boot", True):
             self.set_volume(50)
@@ -81,10 +81,6 @@ class AlsaVolumeControlPlugin(PHALPlugin):
             {"percent": 0 if muted else (self.alsa.get_volume_percent() / 100)}))
 
     def handle_volume_request(self, message):
-        percent = self.get_volume() / 100
-        self.bus.emit(message.response({"percent": percent}))
-
-    def handle_get_silent(self, message):
         percent = self.get_volume() / 100
         self.bus.emit(message.response({"percent": percent}))
 
