@@ -21,6 +21,11 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.bus.on("mycroft.volume.unmute", self.handle_unmute_request)
         self.bus.on("mycroft.volume.mute.toggle", self.handle_mute_toggle_request)
 
+        # A silent method to get the volume without invoking the shell osd
+        # Needed as gui will always refresh and request it
+        # When sliding panel opens to refresh volume value data
+        self.bus.on("mycroft.volume.get.sliding.panel", self.handle_volume_request)
+
         if self.settings.get("first_boot", True):
             self.set_volume(50)
             self.settings["first_boot"] = False
