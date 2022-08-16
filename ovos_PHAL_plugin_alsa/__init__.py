@@ -89,11 +89,11 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.set_volume(percent)
 
     def handle_volume_increase(self, message):
-        percent = message.data["percent"] * 100
+        percent = message.data.get("percent", 10) * 100
         self.increase_volume(percent)
 
     def handle_volume_decrease(self, message):
-        percent = message.data["percent"] * 100
+        percent = message.data.get("percent", -10) * 100
         self.decrease_volume(percent)
 
     def handle_volume_change_gui(self, message):
