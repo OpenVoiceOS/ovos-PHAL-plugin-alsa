@@ -23,7 +23,10 @@ setup(
     license='Apache-2.0',
     packages=['ovos_PHAL_plugin_alsa'],
     package_data={'': package_files('ovos_PHAL_plugin_alsa')},
-    install_requires=["ovos-plugin-manager>=0.0.1", "json_database"],
+    install_requires=[
+        "ovos-plugin-manager~=0.0",
+        "json_database~=0.7",
+        "pyalsaaudio~=0.9"],
     zip_safe=True,
     include_package_data=True,
     classifiers=[
