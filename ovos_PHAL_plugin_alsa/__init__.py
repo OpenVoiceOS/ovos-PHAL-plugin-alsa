@@ -65,13 +65,13 @@ class AlsaVolumeControlPlugin(PHALPlugin):
     def handle_mute_request(self, message):
         self.log.info("User muted audio.")
         self.alsa.mute()
-        self.bus.emit(Message("mycroft.volume.get").response({"percent" : 0}))
+        self.bus.emit(Message("mycroft.volume.get").response({"percent": 0}))
 
     def handle_unmute_request(self, message):
         self.log.info("User unmuted audio.")
         self.alsa.unmute()
         volume = self.alsa.get_volume_percent()
-        self.bus.emit(Message("mycroft.volume.get").response({"percent" : volume / 100}))
+        self.bus.emit(Message("mycroft.volume.get").response({"percent": volume / 100}))
 
     def handle_mute_toggle_request(self, message):
         self.alsa.toggle_mute()
@@ -89,11 +89,11 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.set_volume(percent)
 
     def handle_volume_increase(self, message):
-        percent = message.data.get("percent", 10) * 100
+        percent = message.data.get("percent", .10) * 100
         self.increase_volume(percent)
 
     def handle_volume_decrease(self, message):
-        percent = message.data.get("percent", -10) * 100
+        percent = message.data.get("percent", -.10) * 100
         self.decrease_volume(percent)
 
     def handle_volume_change_gui(self, message):
