@@ -1,6 +1,25 @@
 # ovos-PHAL-plugin - alsa volume control
 
-controls system volume with alsa
+## Install
+
+```sh
+python -m pip install git+https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa
+```
+
+## Configure
+
+In your mycroft.conf
+
+```json
+"PHAL": {
+    "ovos-PHAL-plugin-alsa": {"enabled": true}
+}
+```
+
+## Companion skill
+[skill-ovos-volume](https://github.com/OpenVoiceOS/skill-ovos-volume)
+
+## controls system volume with alsa
 
 ```python
 self.bus.on("mycroft.volume.get", self.handle_volume_request)
