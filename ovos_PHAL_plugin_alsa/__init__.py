@@ -41,6 +41,8 @@ class AlsaValidator:
 
 
 class AlsaVolumeControlPlugin(PHALPlugin):
+    validator = AlsaValidator
+
     def __init__(self, bus=None, config=None):
         super().__init__(bus=bus, name="ovos-PHAL-plugin-alsa", config=config)
         self.settings = JsonConfigXDG(self.name, subfolder="OpenVoiceOS")
