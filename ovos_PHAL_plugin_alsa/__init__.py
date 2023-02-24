@@ -6,6 +6,38 @@ from ovos_utils.sound import play_audio
 from ovos_utils.log import LOG
 from ovos_bus_client import Message
 from json_database import JsonConfigXDG
+from mycroft_bus_client import Message
+from ovos_plugin_manager.phal import PHALPlugin
+from ovos_utils.log import LOG
+from ovos_utils.sound import play_audio
+from ovos_utils.system import find_executable, is_process_running
+from ovos_plugin_manager.phal import find_phal_plugins
+
+
+class AlsaValidator:
+    @staticmethod
+    def validate(config=None):
+        """ this method is called before loading the plugin.
+        If it returns False the plugin is not loaded.
+        This allows a plugin to run platform checks"""
+        # any aliases we need here ?
+        execs = ["pulseaudio"]
+        is_pulse = any((find_executable(e) or is_process_running(e)
+                    for e in execs))
+
+        # check if pulseaudio is installed in system
+        # if missing load alsa
+        if not is_pulse:
+            return True
+
+        # check if pulse plugin is installed
+        # if missing load alsa
+        plugs = list(find_phal_plugins().keys())
+        if "ovos-PHAL-plugin-pulseaudio" not in plugs:
+            return True
+
+        # pulseaudio installed + companion plugin, do not load alsa
+        return False
 
 
 class AlsaVolumeControlPlugin(PHALPlugin):
@@ -210,3 +242,30 @@ class AlsaControl:
 
     def get_volume_percent(self):
         return self.get_volume()
+
+
+if __name__ == "__main__":
+    from time import sleep
+
+    a = AlsaControl()
+    a.set_volume(100)
+    sleep(2)
+    print(a.is_muted())
+    a.mute()
+    print(a.is_muted())
+    sleep(2)
+    a.unmute()
+    print(a.is_muted())
+    print(a.get_volume())
+    sleep(2)
+    a.set_volume(50)
+    print(a.get_volume())
+    sleep(2)
+    a.set_volume(70)
+    print(a.get_volume())
+    sleep(2)
+    a.set_volume(10)
+    print(a.get_volume())
+    sleep(2)
+    a.set_volume(80)
+    print(a.get_volume())
