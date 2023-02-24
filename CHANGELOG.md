@@ -2,7 +2,16 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/10fe6be0768e5a4d2fcaa74314981474725053ba...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.1a2...HEAD)
+
+**Merged pull requests:**
+
+- Update automations to maintained scripts [\#8](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/8) ([NeonDaniel](https://github.com/NeonDaniel))
+- Update PyPI Action name and action spec [\#7](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/7) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [V0.0.1a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.0.1a2) (2022-09-09)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/10fe6be0768e5a4d2fcaa74314981474725053ba...V0.0.1a2)
 
 **Implemented enhancements:**
 
