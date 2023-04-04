@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/HEAD)
+## [V0.0.1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.0.1) (2022-11-10)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.1a2...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.1a2...V0.0.1)
 
 **Merged pull requests:**
 
