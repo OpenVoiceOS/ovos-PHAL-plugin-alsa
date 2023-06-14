@@ -1,7 +1,9 @@
+import alsaaudio
+
 from ovos_plugin_manager.phal import PHALPlugin
 from os.path import join, dirname
 from ovos_utils.sound import play_audio
-from ovos_utils.sound.alsa import AlsaControl
+from ovos_utils.log import LOG
 from mycroft_bus_client import Message
 from json_database import JsonConfigXDG
 
@@ -110,3 +112,101 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.bus.remove("mycroft.volume.unmute", self.handle_unmute_request)
         self.bus.remove("mycroft.volume.mute.toggle", self.handle_mute_toggle_request)
         super().shutdown()
+
+
+class AlsaControl:
+    _mixer = None
+
+    def __init__(self, control=None):
+        # TODO: Deprecate class in 0.1
+        LOG.warning(f"This class is deprecated! Controls moved to"
+                    f"ovos_phal_plugin_alsa.AlsaVolumeControlPlugin")
+        if alsaaudio is None:
+            LOG.error("pyalsaaudio not installed")
+            LOG.info("Run pip install pyalsaaudio==0.8.2")
+            raise ImportError
+        if control is None:
+            control = alsaaudio.mixers()[0]
+        self.get_mixer(control)
+
+    @property
+    def mixer(self):
+        return self._mixer
+
+    def get_mixer(self, control="Master"):
+        if self._mixer is None:
+            try:
+                mixer = alsaaudio.Mixer(control)
+            except Exception as e:
+                try:
+                    mixer = alsaaudio.Mixer(control)
+                except Exception as e:
+                    try:
+                        if control != "Master":
+                            LOG.warning("could not allocate requested mixer, "
+                                        "falling back to 'Master'")
+                            mixer = alsaaudio.Mixer("Master")
+                        else:
+                            raise
+                    except Exception as e:
+                        LOG.error("Couldn't allocate mixer")
+                        LOG.exception(e)
+                        raise
+            self._mixer = mixer
+        return self.mixer
+
+    def increase_volume(self, percent):
+        volume = self.get_volume()
+        if isinstance(volume, list):
+            volume = volume[0]
+        volume += percent
+        if volume < 0:
+            volume = 0
+        elif volume > 100:
+            volume = 100
+        self.mixer.setvolume(int(volume))
+
+    def decrease_volume(self, percent):
+        volume = self.get_volume()
+        if isinstance(volume, list):
+            volume = volume[0]
+        volume -= percent
+        if volume < 0:
+            volume = 0
+        elif volume > 100:
+            volume = 100
+        self.mixer.setvolume(int(volume))
+
+    def set_volume_percent(self, percent):
+        self.set_volume(percent)
+
+    def set_volume(self, volume):
+        if volume < 0:
+            volume = 0
+        elif volume > 100:
+            volume = 100
+        self.mixer.setvolume(int(volume))
+
+    def volume_range(self):
+        return self.mixer.getrange()
+
+    def is_muted(self):
+        return bool(self.mixer.getmute()[0])
+
+    def mute(self):
+        return self.mixer.setmute(1)
+
+    def unmute(self):
+        return self.mixer.setmute(0)
+
+    def toggle_mute(self):
+        if self.is_muted():
+            self.unmute()
+        else:
+            self.mute()
+
+    def get_volume(self):
+        return self.mixer.getvolume()[0]
+
+    def get_volume_percent(self):
+        return self.get_volume()
