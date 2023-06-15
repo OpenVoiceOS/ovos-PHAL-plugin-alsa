@@ -1,32 +1,24 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/HEAD)
+## [0.0.2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.2) (2023-06-15)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.1a2...HEAD)
-
-**Merged pull requests:**
-
-- Update automations to maintained scripts [\#8](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/8) ([NeonDaniel](https://github.com/NeonDaniel))
-- Update PyPI Action name and action spec [\#7](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/7) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V0.0.1a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.0.1a2) (2022-09-09)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/10fe6be0768e5a4d2fcaa74314981474725053ba...V0.0.1a2)
-
-**Implemented enhancements:**
-
-- Add a silent method to get volume for sliding panel [\#2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/2) ([AIIX](https://github.com/AIIX))
-
-**Fixed bugs:**
-
-- only set initial volume on first boot [\#1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/1) ([JarbasAl](https://github.com/JarbasAl))
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.2a2...0.0.2)
 
 **Merged pull requests:**
 
-- Add PyPI and versioning automation scripts and workflows [\#6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/6) ([NeonDaniel](https://github.com/NeonDaniel))
-- Fix volume increase/decrease default value [\#5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/5) ([NeonDaniel](https://github.com/NeonDaniel))
-- Handle volume increase/decrease default increment [\#4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/4) ([NeonDaniel](https://github.com/NeonDaniel))
-- Add pyalsaaudio dependency [\#3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/3) ([NeonDaniel](https://github.com/NeonDaniel))
+- Implement shared GH automation and remove deprecated scripts [\#12](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/12) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [V0.0.2a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.0.2a2) (2023-06-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.2a1...V0.0.2a2)
+
+**Merged pull requests:**
+
+- Move deprecated ovos\_utils class to plugin [\#11](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/11) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [V0.0.2a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.0.2a1) (2023-04-04)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.1...V0.0.2a1)
 
 
 
