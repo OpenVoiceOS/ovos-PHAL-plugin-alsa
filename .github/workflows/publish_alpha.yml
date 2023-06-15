@@ -20,7 +20,8 @@ on:
 jobs:
   publish_alpha_release:
     uses: neongeckocom/.github/.github/workflows/publish_alpha_release.yml@master
-    secrets: inherit
+    secrets:
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
     with:
       version_file: "ovos_PHAL_plugin_alsa/version.py"
       publish_prerelease: true
