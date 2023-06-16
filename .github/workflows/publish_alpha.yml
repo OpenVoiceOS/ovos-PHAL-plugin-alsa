@@ -19,8 +19,7 @@ on:
 
 jobs:
   publish_alpha_release:
-    # TODO: Update to default branch
-    uses: neongeckocom/.github/.github/workflows/publish_alpha_release.yml@FEAT_AlphaReleaseMultilineVersion
+    uses: neongeckocom/.github/.github/workflows/publish_alpha_release.yml@master
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
     with:
@@ -31,5 +30,3 @@ jobs:
       build_var: VERSION_BUILD
       minor_var: VERSION_MINOR
       major_var: VERSION_MAJOR
-      publish_pypi: False
-      # TODO: Re-enable publication after testing
