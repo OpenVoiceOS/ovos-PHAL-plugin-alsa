@@ -19,10 +19,17 @@ on:
 
 jobs:
   publish_alpha_release:
-    uses: neongeckocom/.github/.github/workflows/publish_alpha_release.yml@master
+    # TODO: Update to default branch
+    uses: neongeckocom/.github/.github/workflows/publish_alpha_release.yml@FEAT_AlphaReleaseMultilineVersion
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
     with:
       version_file: "ovos_PHAL_plugin_alsa/version.py"
       publish_prerelease: true
       update_changelog: true
+      alpha_var: VERSION_ALPHA
+      build_var: VERSION_BUILD
+      minor_var: VERSION_MINOR
+      major_var: VERSION_MAJOR
+      publish_pypi: False
+      # TODO: Re-enable publication after testing
