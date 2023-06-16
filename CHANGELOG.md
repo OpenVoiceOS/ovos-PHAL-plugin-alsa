@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.3a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a2) (2023-06-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a1...0.0.3a2)
+
+**Merged pull requests:**
+
+- Add long\_description to setup.py [\#16](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/16) ([NeonDaniel](https://github.com/NeonDaniel))
+
 ## [0.0.3a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a1) (2023-06-16)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.2...0.0.3a1)
