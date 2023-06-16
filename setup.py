@@ -49,11 +49,20 @@ def required(requirements_file):
         return [pkg for pkg in requirements
                 if pkg.strip() and not pkg.startswith("#")]
 
+
+def get_description():
+    with open(os.path.join(BASEDIR, "readme.md"), "r") as f:
+        long_description = f.read()
+    return long_description
+
+
 PLUGIN_ENTRY_POINT = 'ovos-PHAL-plugin-alsa=ovos_PHAL_plugin_alsa:AlsaVolumeControlPlugin'
 setup(
     name='ovos-PHAL-plugin-alsa',
     version=get_version(),
     description='A volume control plugin for OpenVoiceOS hardware abstraction layer',
+    long_description=get_description(),
+    long_description_content_type="text/markdown",
     url='https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa',
     author='JarbasAi',
     author_email='jarbasai@mailfence.com',
