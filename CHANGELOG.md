@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.3a5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a5) (2023-06-21)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a4...0.0.3a5)
+
+**Merged pull requests:**
+
+- Remove copy/pasted deprecation warnings from ovos-utils [\#18](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/18) ([NeonDaniel](https://github.com/NeonDaniel))
+
 ## [0.0.3a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a4) (2023-06-21)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a3...0.0.3a4)
