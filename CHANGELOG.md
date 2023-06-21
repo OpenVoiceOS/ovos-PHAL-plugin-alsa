@@ -1,24 +1,45 @@
 # Changelog
 
-## [0.0.2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.2) (2023-06-15)
+## [0.0.3a5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a5) (2023-06-21)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.2a2...0.0.2)
-
-**Merged pull requests:**
-
-- Implement shared GH automation and remove deprecated scripts [\#12](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/12) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V0.0.2a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.0.2a2) (2023-06-14)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.2a1...V0.0.2a2)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a4...0.0.3a5)
 
 **Merged pull requests:**
 
-- Move deprecated ovos\_utils class to plugin [\#11](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/11) ([NeonDaniel](https://github.com/NeonDaniel))
+- Remove copy/pasted deprecation warnings from ovos-utils [\#18](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/18) ([NeonDaniel](https://github.com/NeonDaniel))
 
-## [V0.0.2a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.0.2a1) (2023-04-04)
+## [0.0.3a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a4) (2023-06-21)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.0.1...V0.0.2a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a3...0.0.3a4)
+
+**Merged pull requests:**
+
+- Feat/pulseaudio compat [\#10](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/10) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.0.3a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a3) (2023-06-21)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a2...0.0.3a3)
+
+**Merged pull requests:**
+
+- unmycroftify [\#17](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.0.3a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a2) (2023-06-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a1...0.0.3a2)
+
+**Merged pull requests:**
+
+- Add long\_description to setup.py [\#16](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/16) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [0.0.3a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a1) (2023-06-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.2...0.0.3a1)
+
+**Merged pull requests:**
+
+- Update Alpha Automation [\#15](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/15) ([NeonDaniel](https://github.com/NeonDaniel))
+- Explicitly pass PYPI\_TOKEN to GH Shared actions [\#14](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/14) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 

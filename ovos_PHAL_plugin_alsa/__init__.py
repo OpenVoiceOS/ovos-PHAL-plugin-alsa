@@ -4,11 +4,41 @@ from ovos_plugin_manager.phal import PHALPlugin
 from os.path import join, dirname
 from ovos_utils.sound import play_audio
 from ovos_utils.log import LOG
-from mycroft_bus_client import Message
+from ovos_bus_client import Message
 from json_database import JsonConfigXDG
+from ovos_utils.system import find_executable, is_process_running
+from ovos_plugin_manager.phal import find_phal_plugins
+
+
+class AlsaValidator:
+    @staticmethod
+    def validate(config=None):
+        """ this method is called before loading the plugin.
+        If it returns False the plugin is not loaded.
+        This allows a plugin to run platform checks"""
+        # any aliases we need here ?
+        execs = ["pulseaudio"]
+        is_pulse = any((find_executable(e) or is_process_running(e)
+                        for e in execs))
+
+        # check if pulseaudio is installed in system
+        # if missing load alsa
+        if not is_pulse:
+            return True
+
+        # check if pulse plugin is installed
+        # if missing load alsa
+        plugs = list(find_phal_plugins().keys())
+        if "ovos-PHAL-plugin-pulseaudio" not in plugs:
+            return True
+
+        # pulseaudio installed + companion plugin, do not load alsa
+        return False
 
 
 class AlsaVolumeControlPlugin(PHALPlugin):
+    validator = AlsaValidator
+
     def __init__(self, bus=None, config=None):
         super().__init__(bus=bus, name="ovos-PHAL-plugin-alsa", config=config)
         self.settings = JsonConfigXDG(self.name, subfolder="OpenVoiceOS")
@@ -118,13 +148,6 @@ class AlsaControl:
     _mixer = None
 
     def __init__(self, control=None):
-        # TODO: Deprecate class in 0.1
-        LOG.warning(f"This class is deprecated! Controls moved to"
-                    f"ovos_phal_plugin_alsa.AlsaVolumeControlPlugin")
-        if alsaaudio is None:
-            LOG.error("pyalsaaudio not installed")
-            LOG.info("Run pip install pyalsaaudio==0.8.2")
-            raise ImportError
         if control is None:
             control = alsaaudio.mixers()[0]
         self.get_mixer(control)
