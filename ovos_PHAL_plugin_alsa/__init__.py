@@ -19,7 +19,7 @@ class AlsaValidator:
         # any aliases we need here ?
         execs = ["pulseaudio"]
         is_pulse = any((find_executable(e) or is_process_running(e)
-                    for e in execs))
+                        for e in execs))
 
         # check if pulseaudio is installed in system
         # if missing load alsa
@@ -148,13 +148,6 @@ class AlsaControl:
     _mixer = None
 
     def __init__(self, control=None):
-        # TODO: Deprecate class in 0.1
-        LOG.warning(f"This class is deprecated! Controls moved to"
-                    f"ovos_phal_plugin_alsa.AlsaVolumeControlPlugin")
-        if alsaaudio is None:
-            LOG.error("pyalsaaudio not installed")
-            LOG.info("Run pip install pyalsaaudio==0.8.2")
-            raise ImportError
         if control is None:
             control = alsaaudio.mixers()[0]
         self.get_mixer(control)
