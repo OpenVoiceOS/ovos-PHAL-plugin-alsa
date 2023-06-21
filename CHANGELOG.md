@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.3a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a3) (2023-06-21)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a2...0.0.3a3)
+
+**Merged pull requests:**
+
+- unmycroftify [\#17](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.3a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.3a2) (2023-06-16)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3a1...0.0.3a2)
