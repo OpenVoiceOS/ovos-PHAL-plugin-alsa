@@ -4,7 +4,7 @@ from ovos_plugin_manager.phal import PHALPlugin
 from os.path import join, dirname
 from ovos_utils.sound import play_audio
 from ovos_utils.log import LOG
-from mycroft_bus_client import Message
+from ovos_bus_client import Message
 from json_database import JsonConfigXDG
 
 
