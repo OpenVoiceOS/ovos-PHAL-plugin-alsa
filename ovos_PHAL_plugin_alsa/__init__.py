@@ -64,10 +64,14 @@ class AlsaVolumeControlPlugin(PHALPlugin):
     def get_volume(self):
         return self.alsa.get_volume_percent()
 
-    def set_volume(self, percent=None, set_by_gui=False):
+    def set_volume(self, percent=None,
+                         set_by_gui=False,
+                         play_sound=True):
         volume = int(percent)
         volume = min(100, volume)
         volume = max(0, volume)
+        if play_sound:
+            self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
         self.alsa.set_volume_percent(volume)
         # report change to GUI
         if not set_by_gui:
@@ -75,17 +79,23 @@ class AlsaVolumeControlPlugin(PHALPlugin):
             self.handle_volume_request(
                 Message("mycroft.volume.get", {"percent": percent}))
 
-    def increase_volume(self, volume_change=None):
+    def increase_volume(self, volume_change=None,
+                              play_sound=True):
         if not volume_change:
             volume_change = 15
+        if play_sound:
+            self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
         self.alsa.increase_volume(volume_change)
         self.handle_volume_request(Message("mycroft.volume.get"))
 
-    def decrease_volume(self, volume_change=None):
+    def decrease_volume(self, volume_change=None,
+                              play_sound=True):
         if not volume_change:
             volume_change = -15
         if volume_change > 0:
             volume_change = 0 - volume_change
+        if play_sound:
+            self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
         self.alsa.increase_volume(volume_change)
         self.handle_volume_request(Message("mycroft.volume.get"))
 
@@ -113,27 +123,27 @@ class AlsaVolumeControlPlugin(PHALPlugin):
 
     def handle_volume_change(self, message):
         percent = message.data["percent"] * 100
-        if message.data.get("play_sound", True):
-            self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
-        self.set_volume(percent)
+        play_sound = message.data.get("play_sound", True)
+        assert isinstance(play_sound, bool)
+        self.set_volume(percent, play_sound=play_sound)
 
     def handle_volume_increase(self, message):
         percent = message.data.get("percent", .10) * 100
-        if message.data.get("play_sound", True):
-            self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
-        self.increase_volume(percent)
+        play_sound = message.data.get("play_sound", True)
+        assert isinstance(play_sound, bool)
+        self.increase_volume(percent, play_sound)
 
     def handle_volume_decrease(self, message):
         percent = message.data.get("percent", -.10) * 100
-        if message.data.get("play_sound", True):
-            self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
-        self.decrease_volume(percent)
+        play_sound = message.data.get("play_sound", True)
+        assert isinstance(play_sound, bool)
+        self.decrease_volume(percent, play_sound)
 
     def handle_volume_change_gui(self, message):
         percent = message.data["percent"] * 100
-        if message.data.get("play_sound", True):
-            self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
-        self.set_volume(percent, set_by_gui=True)
+        play_sound = message.data.get("play_sound", True)
+        assert isinstance(play_sound, bool)
+        self.set_volume(percent, set_by_gui=True, play_sound=play_sound)
 
     def shutdown(self):
         self.bus.remove("mycroft.volume.get", self.handle_volume_request)
