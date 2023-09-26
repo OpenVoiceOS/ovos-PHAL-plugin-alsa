@@ -71,7 +71,6 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         volume = min(100, volume)
         volume = max(0, volume)
         self.alsa.set_volume_percent(volume)
-        play_audio(self.volume_sound)
         # report change to GUI
         if not set_by_gui:
             percent = volume / 100
@@ -82,7 +81,6 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         if not volume_change:
             volume_change = 15
         self.alsa.increase_volume(volume_change)
-        play_audio(self.volume_sound)
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def decrease_volume(self, volume_change=None):
@@ -91,7 +89,6 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         if volume_change > 0:
             volume_change = 0 - volume_change
         self.alsa.increase_volume(volume_change)
-        play_audio(self.volume_sound)
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_mute_request(self, message):
@@ -118,18 +115,26 @@ class AlsaVolumeControlPlugin(PHALPlugin):
 
     def handle_volume_change(self, message):
         percent = message.data["percent"] * 100
+        if message.data.get("play_sound", True):
+            play_audio(self.volume_sound)
         self.set_volume(percent)
 
     def handle_volume_increase(self, message):
         percent = message.data.get("percent", .10) * 100
+        if message.data.get("play_sound", True):
+            play_audio(self.volume_sound)
         self.increase_volume(percent)
 
     def handle_volume_decrease(self, message):
         percent = message.data.get("percent", -.10) * 100
+        if message.data.get("play_sound", True):
+            play_audio(self.volume_sound)
         self.decrease_volume(percent)
 
     def handle_volume_change_gui(self, message):
         percent = message.data["percent"] * 100
+        if message.data.get("play_sound", True):
+            play_audio(self.volume_sound)
         self.set_volume(percent, set_by_gui=True)
 
     def shutdown(self):
