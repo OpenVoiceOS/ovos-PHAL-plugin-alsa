@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.4a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a2) (2023-09-26)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a1...0.0.4a2)
+
+**Implemented enhancements:**
+
+- add play\_sound kwarg [\#21](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/21) ([emphasize](https://github.com/emphasize))
+
 ## [0.0.4a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a1) (2023-09-26)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3...0.0.4a1)
