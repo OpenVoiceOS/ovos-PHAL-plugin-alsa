@@ -189,10 +189,13 @@ class AlsaControl:
         return self.mixer
 
     def increase_volume(self, percent):
-        volume = self.get_volume()
-        self.unmute()
-        if isinstance(volume, list):
-            volume = volume[0]
+        if self.is_muted():
+            self.unmute()
+            volume = 0
+        else:
+            volume = self.get_volume()
+            if isinstance(volume, list):
+                volume = volume[0]
         volume += percent
         if volume < 0:
             volume = 0
@@ -201,10 +204,13 @@ class AlsaControl:
         self.mixer.setvolume(int(volume))
 
     def decrease_volume(self, percent):
-        volume = self.get_volume()
-        self.unmute()
-        if isinstance(volume, list):
-            volume = volume[0]
+        if self.is_muted():
+            self.unmute()
+            volume = 0
+        else:
+            volume = self.get_volume()
+            if isinstance(volume, list):
+                volume = volume[0]
         volume -= percent
         if volume < 0:
             volume = 0
