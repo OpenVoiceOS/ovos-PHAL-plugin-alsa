@@ -75,9 +75,7 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.alsa.set_volume_percent(volume)
         # report change to GUI
         if not set_by_gui:
-            percent = volume / 100
-            self.handle_volume_request(
-                Message("mycroft.volume.get", {"percent": percent}))
+            self.handle_volume_request(Message("mycroft.volume.get"))
 
     def increase_volume(self, volume_change=None,
                               play_sound=True):
@@ -102,24 +100,23 @@ class AlsaVolumeControlPlugin(PHALPlugin):
     def handle_mute_request(self, message):
         self.log.info("User muted audio.")
         self.alsa.mute()
-        self.bus.emit(Message("mycroft.volume.get").response({"percent": 0}))
+        self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_unmute_request(self, message):
         self.log.info("User unmuted audio.")
         self.alsa.unmute()
-        volume = self.alsa.get_volume_percent()
-        self.bus.emit(Message("mycroft.volume.get").response({"percent": volume / 100}))
+        self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_mute_toggle_request(self, message):
         self.alsa.toggle_mute()
         muted = self.alsa.is_muted()
         self.log.info(f"User toggled mute. Result: {'muted' if muted else 'unmuted'}")
-        self.bus.emit(Message("mycroft.volume.get").response(
-            {"percent": 0 if muted else (self.alsa.get_volume_percent() / 100)}))
+        self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_volume_request(self, message):
         percent = self.get_volume() / 100
-        self.bus.emit(message.response({"percent": percent}))
+        self.bus.emit(message.response({"percent": percent,
+                                        "muted": self.alsa.is_muted()}))
 
     def handle_volume_change(self, message):
         percent = message.data["percent"] * 100
@@ -245,8 +242,6 @@ class AlsaControl:
             self.mute()
 
     def get_volume(self):
-        if self.is_muted():
-            return 0
         return self.mixer.getvolume()[0]
 
     def get_volume_percent(self):
