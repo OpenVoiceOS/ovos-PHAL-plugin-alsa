@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.4a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a3) (2023-11-05)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a2...0.0.4a3)
+
+**Implemented enhancements:**
+
+- auto unmute on setting volume [\#22](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/22) ([emphasize](https://github.com/emphasize))
+
+**Closed issues:**
+
+- mute should be broken with setting a volume [\#23](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/issues/23)
+
 ## [0.0.4a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a2) (2023-09-26)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a1...0.0.4a2)
