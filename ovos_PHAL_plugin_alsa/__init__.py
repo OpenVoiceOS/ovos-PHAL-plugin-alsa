@@ -46,15 +46,9 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.bus.on("mycroft.volume.set", self.handle_volume_change)
         self.bus.on("mycroft.volume.increase", self.handle_volume_increase)
         self.bus.on("mycroft.volume.decrease", self.handle_volume_decrease)
-        self.bus.on("mycroft.volume.set.gui", self.handle_volume_change_gui)
         self.bus.on("mycroft.volume.mute", self.handle_mute_request)
         self.bus.on("mycroft.volume.unmute", self.handle_unmute_request)
         self.bus.on("mycroft.volume.mute.toggle", self.handle_mute_toggle_request)
-
-        # A silent method to get the volume without invoking the shell osd
-        # Needed as gui will always refresh and request it
-        # When sliding panel opens to refresh volume value data
-        self.bus.on("mycroft.volume.get.sliding.panel", self.handle_volume_request)
 
         if self.settings.get("first_boot", True):
             self.set_volume(50)
@@ -64,30 +58,26 @@ class AlsaVolumeControlPlugin(PHALPlugin):
     def get_volume(self):
         return self.alsa.get_volume_percent()
 
-    def set_volume(self, percent=None,
-                         set_by_gui=False,
-                         play_sound=True):
+    def set_volume(self, percent=None, play_sound=True):
         volume = int(percent)
         volume = min(100, volume)
         volume = max(0, volume)
         if play_sound:
             self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
         self.alsa.set_volume_percent(volume)
-        # report change to GUI
-        if not set_by_gui:
-            self.handle_volume_request(Message("mycroft.volume.get"))
+        # report change
+        self.handle_volume_request(Message("mycroft.volume.get"))
 
-    def increase_volume(self, volume_change=None,
-                              play_sound=True):
+    def increase_volume(self, volume_change=None, play_sound=True):
         if not volume_change:
             volume_change = 15
         if play_sound:
             self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
         self.alsa.increase_volume(volume_change)
+        # report change
         self.handle_volume_request(Message("mycroft.volume.get"))
 
-    def decrease_volume(self, volume_change=None,
-                              play_sound=True):
+    def decrease_volume(self, volume_change=None, play_sound=True):
         if not volume_change:
             volume_change = -15
         if volume_change > 0:
@@ -95,22 +85,26 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         if play_sound:
             self.bus.emit(Message("mycroft.audio.play_sound", {"uri": "snd/blop-mark-diangelo.wav"}))
         self.alsa.increase_volume(volume_change)
+        # report change
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_mute_request(self, message):
         self.log.info("User muted audio.")
         self.alsa.mute()
+        # report change
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_unmute_request(self, message):
         self.log.info("User unmuted audio.")
         self.alsa.unmute()
+        # report change
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_mute_toggle_request(self, message):
         self.alsa.toggle_mute()
         muted = self.alsa.is_muted()
         self.log.info(f"User toggled mute. Result: {'muted' if muted else 'unmuted'}")
+        # report change
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_volume_request(self, message):
@@ -136,18 +130,11 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         assert isinstance(play_sound, bool)
         self.decrease_volume(percent, play_sound)
 
-    def handle_volume_change_gui(self, message):
-        percent = message.data["percent"] * 100
-        play_sound = message.data.get("play_sound", True)
-        assert isinstance(play_sound, bool)
-        self.set_volume(percent, set_by_gui=True, play_sound=play_sound)
-
     def shutdown(self):
         self.bus.remove("mycroft.volume.get", self.handle_volume_request)
         self.bus.remove("mycroft.volume.set", self.handle_volume_change)
         self.bus.remove("mycroft.volume.increase", self.handle_volume_increase)
         self.bus.remove("mycroft.volume.decrease", self.handle_volume_decrease)
-        self.bus.remove("mycroft.volume.set.gui", self.handle_volume_change_gui)
         self.bus.remove("mycroft.volume.mute", self.handle_mute_request)
         self.bus.remove("mycroft.volume.unmute", self.handle_unmute_request)
         self.bus.remove("mycroft.volume.mute.toggle", self.handle_mute_toggle_request)
