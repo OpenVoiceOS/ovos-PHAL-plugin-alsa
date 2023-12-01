@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.4a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a4) (2023-12-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a3...0.0.4a4)
+
+**Fixed bugs:**
+
+- deprecate ovos-shell specific bus messages [\#24](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/24) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.4a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a3) (2023-11-05)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a2...0.0.4a3)
