@@ -152,6 +152,11 @@ class AlsaControl:
     @property
     def mixer(self):
         return self._mixer
+    
+    @property
+    def can_mute(self):
+        return any(cap in ('Mute', 'Playback Mute', 'Joined Playback Mute')
+                   for cap in self.mixer.switchcap())
 
     def get_mixer(self, control="Master"):
         if self._mixer is None:
@@ -220,15 +225,27 @@ class AlsaControl:
         return self.mixer.getrange()
 
     def is_muted(self):
+        if not self.can_mute:
+            return False
         return bool(self.mixer.getmute()[0])
 
     def mute(self):
+        if not self.can_mute:
+            LOG.warning("Trying to mute a non-switchcap mixer")
+            return
         return self.mixer.setmute(1)
 
     def unmute(self):
+        if not self.can_mute:
+            LOG.warning("Trying to unmute a non-switchcap mixer")
+            return
         return self.mixer.setmute(0)
 
     def toggle_mute(self):
+        if not self.can_mute:
+            LOG.warning("Trying to toggle mute on a non-switchcap mixer")
+            return
+
         if self.is_muted():
             self.unmute()
         else:
