@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.4a5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a5) (2023-12-27)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a4...0.0.4a5)
+
+**Fixed bugs:**
+
+- Add mixer capability checks [\#26](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/issues/26)
+
+**Merged pull requests:**
+
+- add mute capability check [\#28](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/28) ([emphasize](https://github.com/emphasize))
+
 ## [0.0.4a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a4) (2023-12-01)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a3...0.0.4a4)
