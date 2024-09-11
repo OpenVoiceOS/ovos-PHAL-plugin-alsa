@@ -8,7 +8,6 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 def get_version():
     """ Find the version of the package"""
-    version = None
     version_file = os.path.join(BASEDIR, 'ovos_PHAL_plugin_alsa', 'version.py')
     major, minor, build, alpha = (None, None, None, None)
     with open(version_file) as f:
@@ -51,7 +50,7 @@ def required(requirements_file):
 
 
 def get_description():
-    with open(os.path.join(BASEDIR, "readme.md"), "r") as f:
+    with open(os.path.join(BASEDIR, "README.md"), "r") as f:
         long_description = f.read()
     return long_description
 
