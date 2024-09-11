@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.0a1) (2024-09-11)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a5...0.1.0a1)
+
+**Merged pull requests:**
+
+- feat:semver [\#30](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/30) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.4a5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a5) (2023-12-27)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a4...0.0.4a5)
