@@ -1,60 +1,16 @@
 # Changelog
 
-## [0.1.0a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.0a1) (2024-09-11)
+## [0.1.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.1a1) (2024-11-06)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a5...0.1.0a1)
-
-**Merged pull requests:**
-
-- feat:semver [\#30](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/30) ([JarbasAl](https://github.com/JarbasAl))
-
-## [0.0.4a5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a5) (2023-12-27)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a4...0.0.4a5)
-
-**Fixed bugs:**
-
-- Add mixer capability checks [\#26](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/issues/26)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.0...0.1.1a1)
 
 **Merged pull requests:**
 
-- add mute capability check [\#28](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/28) ([emphasize](https://github.com/emphasize))
+- fix: allow latest bus client version [\#32](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/32) ([JarbasAl](https://github.com/JarbasAl))
 
-## [0.0.4a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a4) (2023-12-01)
+## [V0.1.0](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.1.0) (2024-09-11)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a3...0.0.4a4)
-
-**Fixed bugs:**
-
-- deprecate ovos-shell specific bus messages [\#24](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/24) ([JarbasAl](https://github.com/JarbasAl))
-
-## [0.0.4a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a3) (2023-11-05)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a2...0.0.4a3)
-
-**Implemented enhancements:**
-
-- auto unmute on setting volume [\#22](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/22) ([emphasize](https://github.com/emphasize))
-
-**Closed issues:**
-
-- mute should be broken with setting a volume [\#23](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/issues/23)
-
-## [0.0.4a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a2) (2023-09-26)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.4a1...0.0.4a2)
-
-**Implemented enhancements:**
-
-- add play\_sound kwarg [\#21](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/21) ([emphasize](https://github.com/emphasize))
-
-## [0.0.4a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.0.4a1) (2023-09-26)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.0.3...0.0.4a1)
-
-**Implemented enhancements:**
-
-- optional volume sound \(inc/dec/change\) [\#20](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/20) ([emphasize](https://github.com/emphasize))
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.0...V0.1.0)
 
 
 
