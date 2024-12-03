@@ -1,16 +1,16 @@
 # Changelog
 
-## [0.1.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.1a1) (2024-11-06)
+## [0.1.2a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.2a1) (2024-12-03)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.0...0.1.1a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.1...0.1.2a1)
 
 **Merged pull requests:**
 
-- fix: allow latest bus client version [\#32](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/32) ([JarbasAl](https://github.com/JarbasAl))
+- default volume from config [\#34](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/34) ([JarbasAl](https://github.com/JarbasAl))
 
-## [V0.1.0](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.1.0) (2024-09-11)
+## [V0.1.1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.1.1) (2024-11-06)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.0...V0.1.0)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.1...V0.1.1)
 
 
 
