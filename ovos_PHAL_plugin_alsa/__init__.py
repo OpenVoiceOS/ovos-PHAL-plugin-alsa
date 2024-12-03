@@ -51,7 +51,7 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.bus.on("mycroft.volume.mute.toggle", self.handle_mute_toggle_request)
 
         if self.settings.get("first_boot", True):
-            self.set_volume(50)
+            self.set_volume(self.config.get("default_volume", 75))
             self.settings["first_boot"] = False
             self.settings.store()
 
