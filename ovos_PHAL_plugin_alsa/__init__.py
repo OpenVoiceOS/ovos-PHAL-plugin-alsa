@@ -1,9 +1,9 @@
 import alsaaudio
 
 from ovos_plugin_manager.phal import PHALPlugin
-from os.path import join, dirname
 from ovos_utils.log import LOG
 from ovos_bus_client import Message
+from ovos_bus_client.session import SessionManager
 from json_database import JsonConfigXDG
 from ovos_utils.system import find_executable, is_process_running
 from ovos_plugin_manager.phal import find_phal_plugins
@@ -89,18 +89,27 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_mute_request(self, message):
+        if not self.validate_message_context(message):
+            return
+
         self.log.info("User muted audio.")
         self.alsa.mute()
         # report change
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_unmute_request(self, message):
+        if not self.validate_message_context(message):
+            return
+
         self.log.info("User unmuted audio.")
         self.alsa.unmute()
         # report change
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_mute_toggle_request(self, message):
+        if not self.validate_message_context(message):
+            return
+
         self.alsa.toggle_mute()
         muted = self.alsa.is_muted()
         self.log.info(f"User toggled mute. Result: {'muted' if muted else 'unmuted'}")
@@ -108,27 +117,44 @@ class AlsaVolumeControlPlugin(PHALPlugin):
         self.handle_volume_request(Message("mycroft.volume.get"))
 
     def handle_volume_request(self, message):
+        if not self.validate_message_context(message):
+            return
+
         percent = self.get_volume() / 100
         self.bus.emit(message.response({"percent": percent,
                                         "muted": self.alsa.is_muted()}))
 
     def handle_volume_change(self, message):
+        if not self.validate_message_context(message):
+            return
+
         percent = message.data["percent"] * 100
         play_sound = message.data.get("play_sound", True)
         assert isinstance(play_sound, bool)
         self.set_volume(percent, play_sound=play_sound)
 
     def handle_volume_increase(self, message):
+        if not self.validate_message_context(message):
+            return
+
         percent = message.data.get("percent", .10) * 100
         play_sound = message.data.get("play_sound", True)
         assert isinstance(play_sound, bool)
         self.increase_volume(percent, play_sound)
 
     def handle_volume_decrease(self, message):
+        if not self.validate_message_context(message):
+            return
+
         percent = message.data.get("percent", -.10) * 100
         play_sound = message.data.get("play_sound", True)
         assert isinstance(play_sound, bool)
         self.decrease_volume(percent, play_sound)
+
+    def validate_message_context(self, message):
+        sid = SessionManager.get(message).session_id
+        LOG.debug(f"Request session: {sid}  |  Native Session: {self.bus.session_id}")
+        return sid == self.bus.session_id
 
     def shutdown(self):
         self.bus.remove("mycroft.volume.get", self.handle_volume_request)
