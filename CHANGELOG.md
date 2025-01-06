@@ -1,16 +1,16 @@
 # Changelog
 
-## [0.1.2a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.2a1) (2024-12-03)
+## [0.1.3a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.3a1) (2025-01-06)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.1...0.1.2a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.2...0.1.3a1)
 
 **Merged pull requests:**
 
-- default volume from config [\#34](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/34) ([JarbasAl](https://github.com/JarbasAl))
+- fix: session support [\#36](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/36) ([JarbasAl](https://github.com/JarbasAl))
 
-## [V0.1.1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.1.1) (2024-11-06)
+## [V0.1.2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.1.2) (2024-12-03)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.1...V0.1.1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.2...V0.1.2)
 
 
 
