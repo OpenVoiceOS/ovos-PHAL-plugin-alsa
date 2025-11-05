@@ -57,7 +57,7 @@ def get_description():
 
 PLUGIN_ENTRY_POINT = 'ovos-PHAL-plugin-alsa=ovos_PHAL_plugin_alsa:AlsaVolumeControlPlugin'
 setup(
-    name='ovos-PHAL-plugin-alsa',
+    name='ovos_PHAL_plugin_alsa',
     version=get_version(),
     description='A volume control plugin for OpenVoiceOS hardware abstraction layer',
     long_description=get_description(),
