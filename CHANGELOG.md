@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.6a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.6a4) (2026-01-23)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.6a3...0.1.6a4)
+
+**Merged pull requests:**
+
+- chore\(deps\): update actions/setup-python action to v6 [\#47](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/47) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.1.6a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.6a3) (2026-01-23)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.6a2...0.1.6a3)
