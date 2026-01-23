@@ -17,7 +17,7 @@ self.bus.on("mycroft.volume.unmute", self.handle_unmute_request)
 
 This plugin can be used both in OVOS and with [HiveMind](https://github.com/JarbasHiveMind) satellites.
 
-Be sure to allow `"mycroft.volume.get.response"` in your hivemind for your satellite to be able to report camera support
+Be sure to allow `"mycroft.volume.get.response"` in your hivemind for your satellite to be able to report volume
 
 ```bash
 hivemind-core allow-msg "mycroft.volume.get.response"
