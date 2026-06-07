@@ -1,40 +1,16 @@
 # Changelog
 
-## [0.1.6a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.6a4) (2026-01-23)
+## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.6a3...0.1.6a4)
-
-**Merged pull requests:**
-
-- chore\(deps\): update actions/setup-python action to v6 [\#47](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/47) ([renovate[bot]](https://github.com/apps/renovate))
-
-## [0.1.6a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.6a3) (2026-01-23)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.6a2...0.1.6a3)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.6...HEAD)
 
 **Merged pull requests:**
 
-- chore\(deps\): update actions/checkout action to v6 [\#44](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/44) ([renovate[bot]](https://github.com/apps/renovate))
+- fix\(deps\): allow ovos-bus-client 2.x \(widen cap to \<3.0.0\) [\#52](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/52) ([JarbasAl](https://github.com/JarbasAl))
 
-## [0.1.6a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.6a2) (2025-12-19)
+## [V0.1.6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.1.6) (2026-01-23)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.6a1...0.1.6a2)
-
-**Merged pull requests:**
-
-- chore\(deps\): update dependency python to 3.14 [\#43](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/43) ([renovate[bot]](https://github.com/apps/renovate))
-
-## [0.1.6a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.6a1) (2025-12-18)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.5...0.1.6a1)
-
-**Merged pull requests:**
-
-- chore: Configure Renovate [\#42](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/42) ([renovate[bot]](https://github.com/apps/renovate))
-
-## [V0.1.5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.1.5) (2025-11-05)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.5...V0.1.5)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.6...V0.1.6)
 
 
 
