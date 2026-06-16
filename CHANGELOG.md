@@ -1,11 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/HEAD)
+## [0.1.8a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.8a2) (2026-06-16)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.6...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.6...0.1.8a2)
 
 **Merged pull requests:**
 
+- chore: add missing shared CI workflows [\#55](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/55) ([JarbasAl](https://github.com/JarbasAl))
 - fix\(deps\): allow ovos-bus-client 2.x \(widen cap to \<3.0.0\) [\#52](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/52) ([JarbasAl](https://github.com/JarbasAl))
 
 ## [V0.1.6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/V0.1.6) (2026-01-23)
