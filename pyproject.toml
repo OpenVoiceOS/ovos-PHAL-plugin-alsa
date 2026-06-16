@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovos_PHAL_plugin_alsa"
+dynamic = ["version"]
+description = "A volume control plugin for OpenVoiceOS hardware abstraction layer"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "JarbasAi", email = "jarbasai@mailfence.com"}
+]
+keywords = ["ovos", "phal", "plugin"]
+dependencies = [
+    "ovos-plugin-manager>=2.1.0,<3.0.0",
+    "ovos-bus-client>=0.0.4,<3.0.0",
+    "json_database~=0.7",
+    "pyalsaaudio~=0.9"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov"
+]
+
+[project.urls]
+Homepage = "https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa"
+
+[project.entry-points."opm.phal"]
+"ovos-PHAL-plugin-alsa" = "ovos_PHAL_plugin_alsa:AlsaVolumeControlPlugin"
+
+[tool.setuptools.dynamic]
+version = {attr = "ovos_PHAL_plugin_alsa.version.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ovos_PHAL_plugin_alsa*"]
+
+[tool.setuptools.package-data]
+ovos_PHAL_plugin_alsa = [
+    "*.json",
+]
