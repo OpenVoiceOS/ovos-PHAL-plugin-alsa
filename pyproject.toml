@@ -15,7 +15,7 @@ keywords = ["ovos", "phal", "plugin"]
 dependencies = [
     "ovos-plugin-manager>=2.1.0,<3.0.0",
     "ovos-bus-client>=0.0.4,<3.0.0",
-    "json_database~=0.7",
+    "json_database>=0.7,<2.0.0",
     "pyalsaaudio~=0.9"
 ]
 
