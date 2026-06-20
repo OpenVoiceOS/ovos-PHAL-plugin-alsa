@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.9a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.9a1) (2026-06-20)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/0.1.8a2...0.1.9a1)
+
+**Merged pull requests:**
+
+- fix: allow json-database 1.x [\#57](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/pull/57) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.8a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/tree/0.1.8a2) (2026-06-16)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa/compare/V0.1.6...0.1.8a2)
