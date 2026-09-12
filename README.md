@@ -4,6 +4,18 @@ controls system volume with alsa
 
 for voice control you need the companion [ovos-skill-volume](https://github.com/OpenVoiceOS/ovos-skill-volume)
 
+## Install
+
+```sh
+pip install ovos-PHAL-plugin-alsa
+```
+
+or from source:
+
+```sh
+pip install git+https://github.com/OpenVoiceOS/ovos-PHAL-plugin-alsa
+```
+
 ```python
 self.bus.on("mycroft.volume.get", self.handle_volume_request)
 self.bus.on("mycroft.volume.set", self.handle_volume_change)
